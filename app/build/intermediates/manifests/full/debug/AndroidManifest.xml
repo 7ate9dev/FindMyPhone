@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="karan.findmyphone"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="21"
+        android:targetSdkVersion="23" />
+
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="karan.findmyphone.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name="karan.findmyphone.IncomingSms"
+            android:enabled="true"
+            android:exported="true" >
+             
+            <intent-filter>
+                
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+                <action android:name="my.action.string" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="karan.findmyphone.popup2"
+            android:icon="@drawable/app_icon_your_company"
+            android:label="@string/title_activity_popup2"
+            android:logo="@drawable/app_icon_your_company"
+            android:theme="@android:style/Theme.Material.Light.Dialog.NoActionBar" />
+        <activity
+            android:name="karan.findmyphone.PopUp"
+            android:label="@string/title_activity_pop_up"
+            android:theme="@android:style/Theme.Material.Light.Dialog.NoActionBar" >
+        </activity>
+    </application>
+
+</manifest>
